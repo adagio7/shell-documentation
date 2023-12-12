@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>exceptions package &mdash; Bash Shell 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="shell module" href="shell.html" />
+    <link rel="prev" title="applications package" href="applications.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bash Shell
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="applications.html">applications package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">exceptions package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-exceptions.parser_error_listener">exceptions.parser_error_listener module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.parser_error_listener.ParserErrorListener"><code class="docutils literal notranslate"><span class="pre">ParserErrorListener</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-exceptions.shell_error">exceptions.shell_error module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.AppNotFoundError"><code class="docutils literal notranslate"><span class="pre">AppNotFoundError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.AppRuntimeError"><code class="docutils literal notranslate"><span class="pre">AppRuntimeError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.ArgumentError"><code class="docutils literal notranslate"><span class="pre">ArgumentError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.DescendingByteRangeError"><code class="docutils literal notranslate"><span class="pre">DescendingByteRangeError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.DirectoryMissingError"><code class="docutils literal notranslate"><span class="pre">DirectoryMissingError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.FileMissingError"><code class="docutils literal notranslate"><span class="pre">FileMissingError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.FilePermissionError"><code class="docutils literal notranslate"><span class="pre">FilePermissionError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.IncompleteByteRangeError"><code class="docutils literal notranslate"><span class="pre">IncompleteByteRangeError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.InvalidByteRangeError"><code class="docutils literal notranslate"><span class="pre">InvalidByteRangeError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.InvalidRegexError"><code class="docutils literal notranslate"><span class="pre">InvalidRegexError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.MissingApplicationArgumentsError"><code class="docutils literal notranslate"><span class="pre">MissingApplicationArgumentsError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.MissingFlagArgumentError"><code class="docutils literal notranslate"><span class="pre">MissingFlagArgumentError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.MissingInputStreamError"><code class="docutils literal notranslate"><span class="pre">MissingInputStreamError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.ParserError"><code class="docutils literal notranslate"><span class="pre">ParserError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.ShellError"><code class="docutils literal notranslate"><span class="pre">ShellError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.TooManyArgumentsError"><code class="docutils literal notranslate"><span class="pre">TooManyArgumentsError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.UnsupportedFlagError"><code class="docutils literal notranslate"><span class="pre">UnsupportedFlagError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions.shell_error.WrongArgumentTypeError"><code class="docutils literal notranslate"><span class="pre">WrongArgumentTypeError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-exceptions">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.html">shell_parser package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bash Shell</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">exceptions package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/exceptions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="exceptions-package">
+<h1>exceptions package<a class="headerlink" href="#exceptions-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-exceptions.parser_error_listener">
+<span id="exceptions-parser-error-listener-module"></span><h2>exceptions.parser_error_listener module<a class="headerlink" href="#module-exceptions.parser_error_listener" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="exceptions.parser_error_listener.ParserErrorListener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.parser_error_listener.</span></span><span class="sig-name descname"><span class="pre">ParserErrorListener</span></span><a class="reference internal" href="_modules/exceptions/parser_error_listener.html#ParserErrorListener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.parser_error_listener.ParserErrorListener" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorListener</span></code></p>
+<p>Custom antlr error listener that stores the offending symbol.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="exceptions.parser_error_listener.ParserErrorListener.reportAmbiguity">
+<span class="sig-name descname"><span class="pre">reportAmbiguity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recognizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dfa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startIndex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stopIndex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambigAlts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/parser_error_listener.html#ParserErrorListener.reportAmbiguity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.parser_error_listener.ParserErrorListener.reportAmbiguity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="exceptions.parser_error_listener.ParserErrorListener.symbol">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">symbol</span></span><a class="headerlink" href="#exceptions.parser_error_listener.ParserErrorListener.symbol" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="exceptions.parser_error_listener.ParserErrorListener.syntaxError">
+<span class="sig-name descname"><span class="pre">syntaxError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recognizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offendingSymbol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/parser_error_listener.html#ParserErrorListener.syntaxError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.parser_error_listener.ParserErrorListener.syntaxError" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-exceptions.shell_error">
+<span id="exceptions-shell-error-module"></span><h2>exceptions.shell_error module<a class="headerlink" href="#module-exceptions.shell_error" title="Link to this heading"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.AppNotFoundError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">AppNotFoundError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#AppNotFoundError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.AppNotFoundError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.ShellError" title="exceptions.shell_error.ShellError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShellError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.AppRuntimeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">AppRuntimeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#AppRuntimeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.AppRuntimeError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.ShellError" title="exceptions.shell_error.ShellError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShellError</span></code></a></p>
+<p>Base class for all application runtime errors</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.ArgumentError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">ArgumentError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#ArgumentError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.ArgumentError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.ShellError" title="exceptions.shell_error.ShellError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShellError</span></code></a></p>
+<p>Base class for all argument errors</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.DescendingByteRangeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">DescendingByteRangeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byteRange</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#DescendingByteRangeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.DescendingByteRangeError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.AppRuntimeError" title="exceptions.shell_error.AppRuntimeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppRuntimeError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.DirectoryMissingError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">DirectoryMissingError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missingDir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#DirectoryMissingError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.DirectoryMissingError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.AppRuntimeError" title="exceptions.shell_error.AppRuntimeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppRuntimeError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.FileMissingError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">FileMissingError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missingFile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#FileMissingError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.FileMissingError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.AppRuntimeError" title="exceptions.shell_error.AppRuntimeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppRuntimeError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.FilePermissionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">FilePermissionError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#FilePermissionError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.FilePermissionError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.AppRuntimeError" title="exceptions.shell_error.AppRuntimeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppRuntimeError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.IncompleteByteRangeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">IncompleteByteRangeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byteRange</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#IncompleteByteRangeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.IncompleteByteRangeError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.AppRuntimeError" title="exceptions.shell_error.AppRuntimeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppRuntimeError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.InvalidByteRangeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">InvalidByteRangeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byteRange</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#InvalidByteRangeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.InvalidByteRangeError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.AppRuntimeError" title="exceptions.shell_error.AppRuntimeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppRuntimeError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.InvalidRegexError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">InvalidRegexError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#InvalidRegexError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.InvalidRegexError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.AppRuntimeError" title="exceptions.shell_error.AppRuntimeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppRuntimeError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.MissingApplicationArgumentsError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">MissingApplicationArgumentsError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#MissingApplicationArgumentsError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.MissingApplicationArgumentsError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.ArgumentError" title="exceptions.shell_error.ArgumentError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.MissingFlagArgumentError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">MissingFlagArgumentError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#MissingFlagArgumentError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.MissingFlagArgumentError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.ArgumentError" title="exceptions.shell_error.ArgumentError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.MissingInputStreamError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">MissingInputStreamError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#MissingInputStreamError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.MissingInputStreamError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.AppRuntimeError" title="exceptions.shell_error.AppRuntimeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppRuntimeError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.ParserError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">ParserError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#ParserError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.ParserError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.ShellError" title="exceptions.shell_error.ShellError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShellError</span></code></a></p>
+<p>Base class for all parser errors</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.ShellError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">ShellError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#ShellError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.ShellError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Base class for all shell errors</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.TooManyArgumentsError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">TooManyArgumentsError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#TooManyArgumentsError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.TooManyArgumentsError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.ArgumentError" title="exceptions.shell_error.ArgumentError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.UnsupportedFlagError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">UnsupportedFlagError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#UnsupportedFlagError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.UnsupportedFlagError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.ArgumentError" title="exceptions.shell_error.ArgumentError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="exceptions.shell_error.WrongArgumentTypeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">exceptions.shell_error.</span></span><span class="sig-name descname"><span class="pre">WrongArgumentTypeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/exceptions/shell_error.html#WrongArgumentTypeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#exceptions.shell_error.WrongArgumentTypeError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#exceptions.shell_error.ArgumentError" title="exceptions.shell_error.ArgumentError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentError</span></code></a></p>
+</dd></dl>
+
+</section>
+<section id="module-exceptions">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-exceptions" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="applications.html" class="btn btn-neutral float-left" title="applications package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="shell.html" class="btn btn-neutral float-right" title="shell module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, xLo27, adagio7.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

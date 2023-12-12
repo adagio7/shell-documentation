@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utils package &mdash; Bash Shell 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="shell_parser.commands package" href="shell_parser.commands.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bash Shell
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="applications.html">applications package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">exceptions package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.html">shell_parser package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">utils package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-utils.autocomplete">utils.autocomplete module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.autocomplete.AutoCompleter"><code class="docutils literal notranslate"><span class="pre">AutoCompleter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-utils.syntax_highlight">utils.syntax_highlight module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.syntax_highlight.CustomLexer"><code class="docutils literal notranslate"><span class="pre">CustomLexer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bash Shell</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">utils package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="utils-package">
+<h1>utils package<a class="headerlink" href="#utils-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-utils.autocomplete">
+<span id="utils-autocomplete-module"></span><h2>utils.autocomplete module<a class="headerlink" href="#module-utils.autocomplete" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.autocomplete.AutoCompleter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.autocomplete.</span></span><span class="sig-name descname"><span class="pre">AutoCompleter</span></span><a class="reference internal" href="_modules/utils/autocomplete.html#AutoCompleter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.autocomplete.AutoCompleter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Completer</span></code></p>
+<div class="line-block">
+<div class="line">A custom completer that autocompletes commands</div>
+<div class="line-block">
+<div class="line">and files in the current working directory.</div>
+</div>
+<div class="line">Because who has time to type out the full name of a file?</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.autocomplete.AutoCompleter.get_completions">
+<span class="sig-name descname"><span class="pre">get_completions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">complete_event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/autocomplete.html#AutoCompleter.get_completions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.autocomplete.AutoCompleter.get_completions" title="Link to this definition"></a></dt>
+<dd><p>This should be a generator that yields <code class="xref py py-class docutils literal notranslate"><span class="pre">Completion</span></code> instances.</p>
+<p>If the generation of completions is something expensive (that takes a
+lot of time), consider wrapping this <cite>Completer</cite> class in a
+<cite>ThreadedCompleter</cite>. In that case, the completer algorithm runs in a
+background thread and completions will be displayed as soon as they
+arrive.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>document</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">Document</span></code> instance.</p></li>
+<li><p><strong>complete_event</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">CompleteEvent</span></code> instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-utils.syntax_highlight">
+<span id="utils-syntax-highlight-module"></span><h2>utils.syntax_highlight module<a class="headerlink" href="#module-utils.syntax_highlight" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.syntax_highlight.CustomLexer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.syntax_highlight.</span></span><span class="sig-name descname"><span class="pre">CustomLexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/syntax_highlight.html#CustomLexer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.syntax_highlight.CustomLexer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RegexLexer</span></code></p>
+<div class="line-block">
+<div class="line">Lexer for syntax highlighting, denoting which tokens to highlight.</div>
+<div class="line">Because colours are cool.</div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.syntax_highlight.CustomLexer.tokens">
+<span class="sig-name descname"><span class="pre">tokens</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'root':</span> <span class="pre">[('(\\b_?(ls|pwd|cd|cat|echo|head|tail|grep|cut|sort|uniq|find)\\b)',</span> <span class="pre">('Command',)),</span> <span class="pre">('[&lt;&gt;|;]',</span> <span class="pre">('Operator',)),</span> <span class="pre">('&quot;[^&quot;]*&quot;',</span> <span class="pre">('Doublequote',)),</span> <span class="pre">(&quot;'[^']*'&quot;,</span> <span class="pre">('Singlequote',)),</span> <span class="pre">('`[^`]*`',</span> <span class="pre">('Backquote',))]}</span></em><a class="headerlink" href="#utils.syntax_highlight.CustomLexer.tokens" title="Link to this definition"></a></dt>
+<dd><p>At all time there is a stack of states. Initially, the stack contains
+a single state ‘root’. The top of the stack is called “the current state”.</p>
+<p>Dict of <code class="docutils literal notranslate"><span class="pre">{'state':</span> <span class="pre">[(regex,</span> <span class="pre">tokentype,</span> <span class="pre">new_state),</span> <span class="pre">...],</span> <span class="pre">...}</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">new_state</span></code> can be omitted to signify no state transition.
+If <code class="docutils literal notranslate"><span class="pre">new_state</span></code> is a string, it is pushed on the stack. This ensure
+the new current state is <code class="docutils literal notranslate"><span class="pre">new_state</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">new_state</span></code> is a tuple of strings, all of those strings are pushed
+on the stack and the current state will be the last element of the list.
+<code class="docutils literal notranslate"><span class="pre">new_state</span></code> can also be <code class="docutils literal notranslate"><span class="pre">combined('state1',</span> <span class="pre">'state2',</span> <span class="pre">...)</span></code>
+to signify a new, anonymous state combined from the rules of two
+or more existing ones.
+Furthermore, it can be ‘#pop’ to signify going back one step in
+the state stack, or ‘#push’ to push the current state on the stack
+again. Note that if you push while in a combined state, the combined
+state itself is pushed, and not only the state in which the rule is
+defined.</p>
+<p>The tuple can also be replaced with <code class="docutils literal notranslate"><span class="pre">include('state')</span></code>, in which
+case the rules from the state named by the string are included in the
+current one.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-utils" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="shell_parser.commands.html" class="btn btn-neutral float-left" title="shell_parser.commands package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, xLo27, adagio7.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

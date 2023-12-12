@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>applications package &mdash; Bash Shell 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="exceptions package" href="exceptions.html" />
+    <link rel="prev" title="src" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bash Shell
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">applications package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.app">applications.app module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.app.App"><code class="docutils literal notranslate"><span class="pre">App</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.app_factory">applications.app_factory module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.app_factory.AppFactory"><code class="docutils literal notranslate"><span class="pre">AppFactory</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.cat">applications.cat module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.cat.Cat"><code class="docutils literal notranslate"><span class="pre">Cat</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.cd">applications.cd module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.cd.Cd"><code class="docutils literal notranslate"><span class="pre">Cd</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.cut">applications.cut module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.cut.Cut"><code class="docutils literal notranslate"><span class="pre">Cut</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.echo">applications.echo module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.echo.Echo"><code class="docutils literal notranslate"><span class="pre">Echo</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.find">applications.find module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.find.Find"><code class="docutils literal notranslate"><span class="pre">Find</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.grep">applications.grep module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.grep.Grep"><code class="docutils literal notranslate"><span class="pre">Grep</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.head">applications.head module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.head.Head"><code class="docutils literal notranslate"><span class="pre">Head</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.ls">applications.ls module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.ls.Ls"><code class="docutils literal notranslate"><span class="pre">Ls</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.pwd">applications.pwd module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.pwd.Pwd"><code class="docutils literal notranslate"><span class="pre">Pwd</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.sort">applications.sort module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.sort.Sort"><code class="docutils literal notranslate"><span class="pre">Sort</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.tail">applications.tail module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.tail.Tail"><code class="docutils literal notranslate"><span class="pre">Tail</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.uniq">applications.uniq module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.uniq.Uniq"><code class="docutils literal notranslate"><span class="pre">Uniq</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications.unsafe_decorator">applications.unsafe_decorator module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applications.unsafe_decorator.UnsafeApp"><code class="docutils literal notranslate"><span class="pre">UnsafeApp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-applications">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">exceptions package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.html">shell_parser package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bash Shell</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">applications package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/applications.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="applications-package">
+<h1>applications package<a class="headerlink" href="#applications-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-applications.app">
+<span id="applications-app-module"></span><h2>applications.app module<a class="headerlink" href="#module-applications.app" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.app.App">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.app.</span></span><span class="sig-name descname"><span class="pre">App</span></span><a class="reference internal" href="_modules/applications/app.html#App"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.app.App" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract base class that all application inherit from.</p>
+<p>Serves as an interface such that all apps implement exec.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.app.App.exec">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/applications/app.html#App.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.app.App.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.app.App.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#applications.app.App.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.app_factory">
+<span id="applications-app-factory-module"></span><h2>applications.app_factory module<a class="headerlink" href="#module-applications.app_factory" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.app_factory.AppFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.app_factory.</span></span><span class="sig-name descname"><span class="pre">AppFactory</span></span><a class="reference internal" href="_modules/applications/app_factory.html#AppFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.app_factory.AppFactory" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Factory class for creating apps, even unsafe ones.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>AppFactory.getApp(app_name)</p>
+</dd>
+<dt>Raises:</dt><dd><p>AppNotFoundError</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.app_factory.AppFactory.apps">
+<span class="sig-name descname"><span class="pre">apps</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'cat':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.cat.Cat'&gt;,</span> <span class="pre">'cd':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.cd.Cd'&gt;,</span> <span class="pre">'cut':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.cut.Cut'&gt;,</span> <span class="pre">'echo':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.echo.Echo'&gt;,</span> <span class="pre">'find':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.find.Find'&gt;,</span> <span class="pre">'grep':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.grep.Grep'&gt;,</span> <span class="pre">'head':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.head.Head'&gt;,</span> <span class="pre">'ls':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.ls.Ls'&gt;,</span> <span class="pre">'pwd':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.pwd.Pwd'&gt;,</span> <span class="pre">'sort':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.sort.Sort'&gt;,</span> <span class="pre">'tail':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.tail.Tail'&gt;,</span> <span class="pre">'uniq':</span> <span class="pre">&lt;class</span> <span class="pre">'applications.uniq.Uniq'&gt;}</span></em><a class="headerlink" href="#applications.app_factory.AppFactory.apps" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.app_factory.AppFactory.getApp">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getApp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#applications.app.App" title="applications.app.App"><span class="pre">App</span></a></span></span><a class="reference internal" href="_modules/applications/app_factory.html#AppFactory.getApp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.app_factory.AppFactory.getApp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.cat">
+<span id="applications-cat-module"></span><h2>applications.cat module<a class="headerlink" href="#module-applications.cat" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.cat.Cat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.cat.</span></span><span class="sig-name descname"><span class="pre">Cat</span></span><a class="reference internal" href="_modules/applications/cat.html#Cat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.cat.Cat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<div class="line-block">
+<div class="line">Concatenates the content of given files and prints it to stdout.</div>
+<div class="line">If no files are specified, uses stdin.</div>
+</div>
+<dl>
+<dt>Usage:</dt><dd><p>cat [FILE]+</p>
+<div class="line-block">
+<div class="line">FILE: the name of the file. If not specified, uses stdin.</div>
+</div>
+</dd>
+<dt>Raises:</dt><dd><div class="line-block">
+<div class="line">FileMissingError</div>
+<div class="line">FilePermissionError</div>
+<div class="line">AppRunTimeError</div>
+<div class="line">MissingApplicationArgumentsError</div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.cat.Cat.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/applications/cat.html#Cat.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.cat.Cat.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.cat.Cat.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cat'</span></em><a class="headerlink" href="#applications.cat.Cat.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.cd">
+<span id="applications-cd-module"></span><h2>applications.cd module<a class="headerlink" href="#module-applications.cd" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.cd.Cd">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.cd.</span></span><span class="sig-name descname"><span class="pre">Cd</span></span><a class="reference internal" href="_modules/applications/cd.html#Cd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.cd.Cd" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<div class="line-block">
+<div class="line">Change the current working directory to the given directory.</div>
+<div class="line">Independant of input (if any).</div>
+</div>
+<dl>
+<dt>Usage:</dt><dd><div class="line-block">
+<div class="line">cd PATH</div>
+</div>
+<div class="line-block">
+<div class="line">PATH is a relative path to the target directory.</div>
+</div>
+</dd>
+<dt>Raises:</dt><dd><div class="line-block">
+<div class="line">DirectoryMissingError</div>
+<div class="line">WrongArgumentTypeError</div>
+<div class="line">TooManyArgumentsError</div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.cd.Cd.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/applications/cd.html#Cd.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.cd.Cd.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.cd.Cd.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cd'</span></em><a class="headerlink" href="#applications.cd.Cd.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.cut">
+<span id="applications-cut-module"></span><h2>applications.cut module<a class="headerlink" href="#module-applications.cut" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.cut.Cut">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.cut.</span></span><span class="sig-name descname"><span class="pre">Cut</span></span><a class="reference internal" href="_modules/applications/cut.html#Cut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.cut.Cut" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<div class="line-block">
+<div class="line">Cuts out sections from each line of a given file or stdin.</div>
+<div class="line">Prints the result to stdout.</div>
+</div>
+<dl>
+<dt>Usage:</dt><dd><p>cut OPTIONS [FILE]</p>
+<dl>
+<dt>OPTIONS:</dt><dd><div class="line-block">
+<div class="line">-b LIST    select only these bytes</div>
+<div class="line-block">
+<div class="line">LIST is a comma-separated list of byte ranges</div>
+<div class="line">Byte range format: b; b1-b2; b1-; -b2</div>
+</div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>Raises:</dt><dd><div class="line-block">
+<div class="line">FileMissingError</div>
+<div class="line">FilePermissionError</div>
+<div class="line">MissingApplicationArgumentsError</div>
+<div class="line">TooManyArgumentsError</div>
+<div class="line">MissingFlagArgumentError</div>
+<div class="line">IncompleteByteRangeError</div>
+<div class="line">DescendingByteRangeError</div>
+<div class="line">UnsupportedFlagError</div>
+<div class="line">WrongArgumentTypeError</div>
+<div class="line">InvalidByteRangeError</div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.cut.Cut.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/applications/cut.html#Cut.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.cut.Cut.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.cut.Cut.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cut'</span></em><a class="headerlink" href="#applications.cut.Cut.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.echo">
+<span id="applications-echo-module"></span><h2>applications.echo module<a class="headerlink" href="#module-applications.echo" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.echo.Echo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.echo.</span></span><span class="sig-name descname"><span class="pre">Echo</span></span><a class="reference internal" href="_modules/applications/echo.html#Echo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.echo.Echo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<p>Prints its arguments separated by spaces and followed by a newline to stdout:</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>echo [ARG]+</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.echo.Echo.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/applications/echo.html#Echo.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.echo.Echo.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.echo.Echo.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'echo'</span></em><a class="headerlink" href="#applications.echo.Echo.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.find">
+<span id="applications-find-module"></span><h2>applications.find module<a class="headerlink" href="#module-applications.find" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.find.Find">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.find.</span></span><span class="sig-name descname"><span class="pre">Find</span></span><a class="reference internal" href="_modules/applications/find.html#Find"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.find.Find" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<div class="line-block">
+<div class="line">Recursively searches for files with matching names.</div>
+<div class="line">Outputs the list of relative paths, each followed by a newline.</div>
+</div>
+<dl>
+<dt>Usage: $</dt><dd><div class="line-block">
+<div class="line">find [PATH] -name PATTERN</div>
+</div>
+<div class="line-block">
+<div class="line">PATH is the root directory for search.</div>
+<div class="line-block">
+<div class="line">If not specified, uses the current directory.</div>
+</div>
+<div class="line">PATTERN is a file name with some parts replaced with * (asterisk).</div>
+</div>
+</dd>
+<dt>Raises:</dt><dd><div class="line-block">
+<div class="line">MissingApplicationArgumentsError</div>
+<div class="line">TooManyArgumentsError</div>
+<div class="line">DirectoryMissingError</div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.find.Find.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/applications/find.html#Find.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.find.Find.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.find.Find.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'find'</span></em><a class="headerlink" href="#applications.find.Find.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.grep">
+<span id="applications-grep-module"></span><h2>applications.grep module<a class="headerlink" href="#module-applications.grep" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.grep.Grep">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.grep.</span></span><span class="sig-name descname"><span class="pre">Grep</span></span><a class="reference internal" href="_modules/applications/grep.html#Grep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.grep.Grep" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<div class="line-block">
+<div class="line">Searches for lines containing a match to the specified pattern.</div>
+<div class="line">The output of the command is the list of lines.</div>
+<div class="line">Each line is printed followed by a newline.</div>
+</div>
+<dl>
+<dt>Usage:</dt><dd><div class="line-block">
+<div class="line">grep PATTERN [FILE]…</div>
+</div>
+<div class="line-block">
+<div class="line">PATTERN is a regular expression in PCRE format.</div>
+</div>
+<div class="line-block">
+<div class="line">FILE(s) is the name(s) of the file(s).</div>
+<div class="line-block">
+<div class="line">If no file is specified, use stdin.</div>
+<div class="line">When multiple files are provided,</div>
+<div class="line-block">
+<div class="line">the found lines should be prefixed</div>
+<div class="line">with the corresponding file paths and colon symbols.</div>
+</div>
+</div>
+</div>
+</dd>
+<dt>Raises:</dt><dd><div class="line-block">
+<div class="line">MissingApplicationArgumentsError</div>
+<div class="line">InvalidRegexError</div>
+<div class="line">MissingInputStreamError</div>
+<div class="line">FileMissingError</div>
+<div class="line">FilePermissionError</div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.grep.Grep.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/applications/grep.html#Grep.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.grep.Grep.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.grep.Grep.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'grep'</span></em><a class="headerlink" href="#applications.grep.Grep.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.head">
+<span id="applications-head-module"></span><h2>applications.head module<a class="headerlink" href="#module-applications.head" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.head.Head">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.head.</span></span><span class="sig-name descname"><span class="pre">Head</span></span><a class="reference internal" href="_modules/applications/head.html#Head"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.head.Head" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<div class="line-block">
+<div class="line">Prints the first N lines of a given file or stdin.</div>
+<div class="line">If there are less than N lines,</div>
+<div class="line">prints the existing lines without raising an exception.</div>
+</div>
+<dl>
+<dt>Usage:</dt><dd><div class="line-block">
+<div class="line">head [-n N] [FILE]</div>
+</div>
+<div class="line-block">
+<div class="line">By default, N is 10.</div>
+<div class="line">FILE is the name of the file. If not specified, uses stdin.</div>
+</div>
+</dd>
+<dt>Raises:</dt><dd><div class="line-block">
+<div class="line">MissingFlagArgumentError</div>
+<div class="line">MissingInputStreamError</div>
+<div class="line">TooManyArgumentsError</div>
+<div class="line">WrongArgumentTypeError</div>
+<div class="line">UnsupportedFlagError</div>
+<div class="line">FileMissingError</div>
+<div class="line">FilePermissionError</div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.head.Head.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/applications/head.html#Head.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.head.Head.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.head.Head.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'head'</span></em><a class="headerlink" href="#applications.head.Head.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.ls">
+<span id="applications-ls-module"></span><h2>applications.ls module<a class="headerlink" href="#module-applications.ls" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.ls.Ls">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.ls.</span></span><span class="sig-name descname"><span class="pre">Ls</span></span><a class="reference internal" href="_modules/applications/ls.html#Ls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.ls.Ls" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<div class="line-block">
+<div class="line">Lists the content of a directory.</div>
+<div class="line">It prints a list of files and dirs separated by tabs and followed by a newline.</div>
+<div class="line">Ignores hidden files and directories (whose names start with ‘.’)</div>
+</div>
+<dl>
+<dt>Usage:</dt><dd><div class="line-block">
+<div class="line">ls [PATH]</div>
+</div>
+<div class="line-block">
+<div class="line">PATH is the directory to list.</div>
+<div class="line-block">
+<div class="line">If not specified, uses the current directory.</div>
+</div>
+</div>
+</dd>
+<dt>Raises:</dt><dd><div class="line-block">
+<div class="line">TooManyArgumentsError</div>
+<div class="line">DirectoryMissingError</div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.ls.Ls.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/applications/ls.html#Ls.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.ls.Ls.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.ls.Ls.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ls'</span></em><a class="headerlink" href="#applications.ls.Ls.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.pwd">
+<span id="applications-pwd-module"></span><h2>applications.pwd module<a class="headerlink" href="#module-applications.pwd" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.pwd.Pwd">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.pwd.</span></span><span class="sig-name descname"><span class="pre">Pwd</span></span><a class="reference internal" href="_modules/applications/pwd.html#Pwd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.pwd.Pwd" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<p>Outputs the current working directory followed by a newline.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>pwd</p>
+</dd>
+<dt>Raises:</dt><dd><p>TooManyArgumentsError</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.pwd.Pwd.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/applications/pwd.html#Pwd.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.pwd.Pwd.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.pwd.Pwd.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pwd'</span></em><a class="headerlink" href="#applications.pwd.Pwd.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.sort">
+<span id="applications-sort-module"></span><h2>applications.sort module<a class="headerlink" href="#module-applications.sort" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.sort.Sort">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.sort.</span></span><span class="sig-name descname"><span class="pre">Sort</span></span><a class="reference internal" href="_modules/applications/sort.html#Sort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.sort.Sort" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<p>Sorts the contents of a file/stdin line by line and prints the result to stdout.</p>
+<dl>
+<dt>Usage:</dt><dd><div class="line-block">
+<div class="line">sort [-r] [FILE]</div>
+</div>
+<div class="line-block">
+<div class="line">-r is the flag implicating to reverse the order of the output</div>
+<div class="line">FILE is the name of the file to be used.</div>
+<div class="line-block">
+<div class="line">If not specified, uses stdin.</div>
+</div>
+</div>
+</dd>
+<dt>Raises:</dt><dd><div class="line-block">
+<div class="line">FileMissingError</div>
+<div class="line">FilePermissionError</div>
+<div class="line">TooManyArgumentsError</div>
+<div class="line">MissingInputStreamError</div>
+<div class="line">UnsupportedFlagError</div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.sort.Sort.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/applications/sort.html#Sort.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.sort.Sort.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.sort.Sort.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sort'</span></em><a class="headerlink" href="#applications.sort.Sort.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.tail">
+<span id="applications-tail-module"></span><h2>applications.tail module<a class="headerlink" href="#module-applications.tail" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.tail.Tail">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.tail.</span></span><span class="sig-name descname"><span class="pre">Tail</span></span><a class="reference internal" href="_modules/applications/tail.html#Tail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.tail.Tail" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<div class="line-block">
+<div class="line">Prints the last N lines of a given file or stdin.</div>
+<div class="line">If there are less than N lines,</div>
+<div class="line-block">
+<div class="line">prints only the existing lines without raising an exception.</div>
+</div>
+</div>
+<dl>
+<dt>Usage:</dt><dd><div class="line-block">
+<div class="line">tail [-n N] [FILE]</div>
+</div>
+<div class="line-block">
+<div class="line">By default, N is 10.</div>
+<div class="line">FILE is the name of the file. If not specified, uses stdin.</div>
+</div>
+</dd>
+<dt>Raises:</dt><dd><div class="line-block">
+<div class="line">MissingFlagArgumentError</div>
+<div class="line">MissingInputStreamError</div>
+<div class="line">TooManyArgumentsError</div>
+<div class="line">WrongArgumentTypeError</div>
+<div class="line">UnsupportedFlagError</div>
+<div class="line">FileMissingError</div>
+<div class="line">FilePermissionError</div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.tail.Tail.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/applications/tail.html#Tail.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.tail.Tail.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.tail.Tail.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tail'</span></em><a class="headerlink" href="#applications.tail.Tail.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.uniq">
+<span id="applications-uniq-module"></span><h2>applications.uniq module<a class="headerlink" href="#module-applications.uniq" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.uniq.Uniq">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.uniq.</span></span><span class="sig-name descname"><span class="pre">Uniq</span></span><a class="reference internal" href="_modules/applications/uniq.html#Uniq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.uniq.Uniq" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<p>Detects and deletes adjacent duplicate lines from an
+input file/stdin and prints the result to stdout.</p>
+<dl>
+<dt>Usage:</dt><dd><div class="line-block">
+<div class="line">uniq [-i] [FILE]</div>
+</div>
+<div class="line-block">
+<div class="line">-i is the flag implicating to ignore case</div>
+<div class="line">FILE is the name of the file.</div>
+<div class="line-block">
+<div class="line">If not specified, uses stdin.</div>
+</div>
+</div>
+</dd>
+<dt>Raises:</dt><dd><div class="line-block">
+<div class="line">TooManyArgumentsError</div>
+<div class="line">FileMissingError</div>
+<div class="line">FilePermissionError</div>
+<div class="line">MissingInputStreamError</div>
+<div class="line">UnsupportedFlagError</div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.uniq.Uniq.exec">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">deque</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/applications/uniq.html#Uniq.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.uniq.Uniq.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.uniq.Uniq.ignore_case">
+<span class="sig-name descname"><span class="pre">ignore_case</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#applications.uniq.Uniq.ignore_case" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="applications.uniq.Uniq.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uniq'</span></em><a class="headerlink" href="#applications.uniq.Uniq.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications.unsafe_decorator">
+<span id="applications-unsafe-decorator-module"></span><h2>applications.unsafe_decorator module<a class="headerlink" href="#module-applications.unsafe_decorator" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="applications.unsafe_decorator.UnsafeApp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">applications.unsafe_decorator.</span></span><span class="sig-name descname"><span class="pre">UnsafeApp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#applications.app.App" title="applications.app.App"><span class="pre">App</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/applications/unsafe_decorator.html#UnsafeApp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.unsafe_decorator.UnsafeApp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#applications.app.App" title="applications.app.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a></p>
+<p>Designate an App as unsafe, causing it to output any error messages.</p>
+<p>An unsafe version of an app has the same semantics as the original app,
+but instead of raising exceptions, it prints the error to its stdout.
+This prevent long sequences from terminating early when
+some intermediate commands fail.</p>
+<p>Application of the Decorator Design Pattern.</p>
+<dl>
+<dt>Raises:</dt><dd><div class="line-block">
+<div class="line">None</div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="applications.unsafe_decorator.UnsafeApp.exec">
+<span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/applications/unsafe_decorator.html#UnsafeApp.exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#applications.unsafe_decorator.UnsafeApp.exec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-applications">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-applications" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="src" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="exceptions package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, xLo27, adagio7.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

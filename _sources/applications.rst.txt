@@ -1,0 +1,133 @@
+applications package
+====================
+
+Submodules
+----------
+
+applications.app module
+-----------------------
+
+.. automodule:: applications.app
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.app\_factory module
+--------------------------------
+
+.. automodule:: applications.app_factory
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.cat module
+-----------------------
+
+.. automodule:: applications.cat
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.cd module
+----------------------
+
+.. automodule:: applications.cd
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.cut module
+-----------------------
+
+.. automodule:: applications.cut
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.echo module
+------------------------
+
+.. automodule:: applications.echo
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.find module
+------------------------
+
+.. automodule:: applications.find
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.grep module
+------------------------
+
+.. automodule:: applications.grep
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.head module
+------------------------
+
+.. automodule:: applications.head
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.ls module
+----------------------
+
+.. automodule:: applications.ls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.pwd module
+-----------------------
+
+.. automodule:: applications.pwd
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.sort module
+------------------------
+
+.. automodule:: applications.sort
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.tail module
+------------------------
+
+.. automodule:: applications.tail
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.uniq module
+------------------------
+
+.. automodule:: applications.uniq
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+applications.unsafe\_decorator module
+-------------------------------------
+
+.. automodule:: applications.unsafe_decorator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: applications
+   :members:
+   :undoc-members:
+   :show-inheritance:

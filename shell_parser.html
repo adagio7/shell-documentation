@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>shell_parser package &mdash; Bash Shell 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="shell_parser.commands package" href="shell_parser.commands.html" />
+    <link rel="prev" title="shell module" href="shell.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bash Shell
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="applications.html">applications package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">exceptions package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">shell_parser package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.commands.html">shell_parser.commands package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-shell_parser.converter">shell_parser.converter module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#shell_parser.converter.Converter"><code class="docutils literal notranslate"><span class="pre">Converter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-shell_parser.expressions">shell_parser.expressions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#shell_parser.expressions.Argument"><code class="docutils literal notranslate"><span class="pre">Argument</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell_parser.expressions.ArgumentContent"><code class="docutils literal notranslate"><span class="pre">ArgumentContent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell_parser.expressions.BackQuoted"><code class="docutils literal notranslate"><span class="pre">BackQuoted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell_parser.expressions.Quoted"><code class="docutils literal notranslate"><span class="pre">Quoted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell_parser.expressions.Redirection"><code class="docutils literal notranslate"><span class="pre">Redirection</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell_parser.expressions.UnQuoted"><code class="docutils literal notranslate"><span class="pre">UnQuoted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell_parser.expressions.UnexpandedArgument"><code class="docutils literal notranslate"><span class="pre">UnexpandedArgument</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-shell_parser.main">shell_parser.main module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#shell_parser.main.convert"><code class="docutils literal notranslate"><span class="pre">convert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell_parser.main.evaluate"><code class="docutils literal notranslate"><span class="pre">evaluate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-shell_parser">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bash Shell</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">shell_parser package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/shell_parser.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="shell-parser-package">
+<h1>shell_parser package<a class="headerlink" href="#shell-parser-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="shell_parser.commands.html">shell_parser.commands package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.commands.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.commands.html#module-shell_parser.commands.call">shell_parser.commands.call module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.call.Call"><code class="docutils literal notranslate"><span class="pre">Call</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.call.Call.exec"><code class="docutils literal notranslate"><span class="pre">Call.exec()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.commands.html#module-shell_parser.commands.command">shell_parser.commands.command module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.command.Command"><code class="docutils literal notranslate"><span class="pre">Command</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.command.Command.exec"><code class="docutils literal notranslate"><span class="pre">Command.exec()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.commands.html#module-shell_parser.commands.pipe">shell_parser.commands.pipe module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.pipe.Pipe"><code class="docutils literal notranslate"><span class="pre">Pipe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.pipe.Pipe.exec"><code class="docutils literal notranslate"><span class="pre">Pipe.exec()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.commands.html#module-shell_parser.commands.seq">shell_parser.commands.seq module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.seq.Seq"><code class="docutils literal notranslate"><span class="pre">Seq</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.seq.Seq.exec"><code class="docutils literal notranslate"><span class="pre">Seq.exec()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.commands.html#module-shell_parser.commands">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-shell_parser.converter">
+<span id="shell-parser-converter-module"></span><h2>shell_parser.converter module<a class="headerlink" href="#module-shell_parser.converter" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell_parser.converter.</span></span><span class="sig-name descname"><span class="pre">Converter</span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ShellGrammarVisitor</span></code></p>
+<div class="line-block">
+<div class="line">Visitor that converts the parse tree into a Command object.</div>
+<div class="line">The parse tree is traversed in a depth-first manner.</div>
+</div>
+<div class="line-block">
+<div class="line">Allows for the tokenization of the input to be abstracted away.</div>
+<div class="line">Enabling seperation of concerns between the parser and the tokenizer.</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitArgument">
+<span class="sig-name descname"><span class="pre">visitArgument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#shell_parser.expressions.UnexpandedArgument" title="shell_parser.expressions.UnexpandedArgument"><span class="pre">UnexpandedArgument</span></a></span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitArgument"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitArgument" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitAtom">
+<span class="sig-name descname"><span class="pre">visitAtom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitAtom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitAtom" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitBackquoted">
+<span class="sig-name descname"><span class="pre">visitBackquoted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#shell_parser.expressions.BackQuoted" title="shell_parser.expressions.BackQuoted"><span class="pre">BackQuoted</span></a></span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitBackquoted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitBackquoted" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitCall">
+<span class="sig-name descname"><span class="pre">visitCall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.call.Call" title="shell_parser.commands.call.Call"><span class="pre">Call</span></a></span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitCall"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitCall" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitCommand">
+<span class="sig-name descname"><span class="pre">visitCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.command.Command" title="shell_parser.commands.command.Command"><span class="pre">Command</span></a></span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitCommand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitCommand" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitDoublequoted">
+<span class="sig-name descname"><span class="pre">visitDoublequoted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#shell_parser.expressions.Quoted" title="shell_parser.expressions.Quoted"><span class="pre">Quoted</span></a></span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitDoublequoted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitDoublequoted" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitPipe">
+<span class="sig-name descname"><span class="pre">visitPipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.pipe.Pipe" title="shell_parser.commands.pipe.Pipe"><span class="pre">Pipe</span></a></span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitPipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitPipe" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitQuoted">
+<span class="sig-name descname"><span class="pre">visitQuoted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#shell_parser.expressions.Quoted" title="shell_parser.expressions.Quoted"><span class="pre">Quoted</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#shell_parser.expressions.BackQuoted" title="shell_parser.expressions.BackQuoted"><span class="pre">BackQuoted</span></a></span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitQuoted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitQuoted" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitRedirection">
+<span class="sig-name descname"><span class="pre">visitRedirection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#shell_parser.expressions.Redirection" title="shell_parser.expressions.Redirection"><span class="pre">Redirection</span></a></span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitRedirection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitRedirection" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitSeq">
+<span class="sig-name descname"><span class="pre">visitSeq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.command.Command" title="shell_parser.commands.command.Command"><span class="pre">Command</span></a></span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitSeq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitSeq" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitSinglequoted">
+<span class="sig-name descname"><span class="pre">visitSinglequoted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#shell_parser.expressions.Quoted" title="shell_parser.expressions.Quoted"><span class="pre">Quoted</span></a></span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitSinglequoted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitSinglequoted" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitStart">
+<span class="sig-name descname"><span class="pre">visitStart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitStart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitStart" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.converter.Converter.visitUnquoted">
+<span class="sig-name descname"><span class="pre">visitUnquoted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#shell_parser.expressions.UnQuoted" title="shell_parser.expressions.UnQuoted"><span class="pre">UnQuoted</span></a></span></span><a class="reference internal" href="_modules/shell_parser/converter.html#Converter.visitUnquoted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.converter.Converter.visitUnquoted" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-shell_parser.expressions">
+<span id="shell-parser-expressions-module"></span><h2>shell_parser.expressions module<a class="headerlink" href="#module-shell_parser.expressions" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="shell_parser.expressions.Argument">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell_parser.expressions.</span></span><span class="sig-name descname"><span class="pre">Argument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">arg_contents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#shell_parser.expressions.ArgumentContent" title="shell_parser.expressions.ArgumentContent"><span class="pre">ArgumentContent</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#Argument"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.Argument" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Expanded arguments are stored as Argument objects.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.expressions.Argument.glob_pattern">
+<span class="sig-name descname"><span class="pre">glob_pattern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#Argument.glob_pattern"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.Argument.glob_pattern" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shell_parser.expressions.ArgumentContent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell_parser.expressions.</span></span><span class="sig-name descname"><span class="pre">ArgumentContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#ArgumentContent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.ArgumentContent" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<div class="line-block">
+<div class="line">Abstract base class for all argument contents.</div>
+</div>
+<div class="line-block">
+<div class="line">Serves as an interface such that all argument contents implement glob_pattern.</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.expressions.ArgumentContent.glob_pattern">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">glob_pattern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#ArgumentContent.glob_pattern"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.ArgumentContent.glob_pattern" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shell_parser.expressions.BackQuoted">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell_parser.expressions.</span></span><span class="sig-name descname"><span class="pre">BackQuoted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#BackQuoted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.BackQuoted" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shell_parser.expressions.ArgumentContent" title="shell_parser.expressions.ArgumentContent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentContent</span></code></a></p>
+<div class="line-block">
+<div class="line">Backquoted string denote a command substitution in the shell.</div>
+</div>
+<div class="line-block">
+<div class="line">It can be interpreted as a subcommand (within the command itself).</div>
+<div class="line">After expansion, its output is replaced into the original command.</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.expressions.BackQuoted.glob_pattern">
+<span class="sig-name descname"><span class="pre">glob_pattern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#BackQuoted.glob_pattern"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.BackQuoted.glob_pattern" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shell_parser.expressions.Quoted">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell_parser.expressions.</span></span><span class="sig-name descname"><span class="pre">Quoted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#Quoted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.Quoted" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shell_parser.expressions.ArgumentContent" title="shell_parser.expressions.ArgumentContent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentContent</span></code></a></p>
+<div class="line-block">
+<div class="line">Quoting is used to remove the special meaning of certain characters or words.</div>
+<div class="line">Encapsulates the single and double quotes.</div>
+</div>
+<div class="line-block">
+<div class="line">Note that the case where backquotes (cmd sub) are inside</div>
+<div class="line-block">
+<div class="line">double quotes is handled by the converter.</div>
+</div>
+<div class="line">Hence, Quoted only handles string literals.</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.expressions.Quoted.glob_pattern">
+<span class="sig-name descname"><span class="pre">glob_pattern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#Quoted.glob_pattern"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.Quoted.glob_pattern" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shell_parser.expressions.Redirection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell_parser.expressions.</span></span><span class="sig-name descname"><span class="pre">Redirection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">redirection_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#shell_parser.expressions.UnexpandedArgument" title="shell_parser.expressions.UnexpandedArgument"><span class="pre">UnexpandedArgument</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#Redirection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.Redirection" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<div class="line-block">
+<div class="line">A dataclass containing the redirection type and the argument to be redirected.</div>
+</div>
+<div class="line-block">
+<div class="line">Redirection types are “input” and “output”.</div>
+<div class="line">Note that multiple redirections of the same type are not allowed.</div>
+</div>
+<div class="line-block">
+<div class="line">If the redirection type is “input”, the argument is the filename to be read from.</div>
+<div class="line-block">
+<div class="line">If the file does not exist, a ShellError is raised.</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">If the redirection type is “output”, the argument is the filename to be written to.</div>
+<div class="line-block">
+<div class="line">If the file exists, it is overwritten; or if it does not exist, it is created.</div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shell_parser.expressions.UnQuoted">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell_parser.expressions.</span></span><span class="sig-name descname"><span class="pre">UnQuoted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#UnQuoted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.UnQuoted" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shell_parser.expressions.ArgumentContent" title="shell_parser.expressions.ArgumentContent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentContent</span></code></a></p>
+<p>Dataclass denoting string literals that are not quoted.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.expressions.UnQuoted.glob_pattern">
+<span class="sig-name descname"><span class="pre">glob_pattern</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#UnQuoted.glob_pattern"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.UnQuoted.glob_pattern" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shell_parser.expressions.UnexpandedArgument">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell_parser.expressions.</span></span><span class="sig-name descname"><span class="pre">UnexpandedArgument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">arg_contents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#shell_parser.expressions.ArgumentContent" title="shell_parser.expressions.ArgumentContent"><span class="pre">ArgumentContent</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#UnexpandedArgument"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.UnexpandedArgument" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<div class="line-block">
+<div class="line">Used to denote an argument that has not been expanded.</div>
+</div>
+<div class="line-block">
+<div class="line">This is used to denote arguments that are not yet expanded,</div>
+<div class="line">in particular, this is what is passed to the Call class.</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="shell_parser.expressions.UnexpandedArgument.expand">
+<span class="sig-name descname"><span class="pre">expand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/expressions.html#UnexpandedArgument.expand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.expressions.UnexpandedArgument.expand" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Return Arguments produced by command substitution on BackQuoted ArgumentContent.</div>
+</div>
+<div class="line-block">
+<div class="line">If no backquoted, a list consisting of a single Argument will be returned.</div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-shell_parser.main">
+<span id="shell-parser-main-module"></span><h2>shell_parser.main module<a class="headerlink" href="#module-shell_parser.main" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="shell_parser.main.convert">
+<span class="sig-prename descclassname"><span class="pre">shell_parser.main.</span></span><span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="shell_parser.commands.html#shell_parser.commands.command.Command" title="shell_parser.commands.command.Command"><span class="pre">Command</span></a></span></span><a class="reference internal" href="_modules/shell_parser/main.html#convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.main.convert" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Abstracted method that converts a string into a Command object.</div>
+<div class="line">Adds the custom error listener to the parser.</div>
+</div>
+<div class="line-block">
+<div class="line">Uses the converter visitor to traverse the parse tree.</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shell_parser.main.evaluate">
+<span class="sig-prename descclassname"><span class="pre">shell_parser.main.</span></span><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shell_parser/main.html#evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell_parser.main.evaluate" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Abstracted method that evaluates a command lines.</div>
+</div>
+<div class="line-block">
+<div class="line">Abstracts the tokenization of the parsing and its evaluation.</div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-shell_parser">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-shell_parser" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="shell.html" class="btn btn-neutral float-left" title="shell module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="shell_parser.commands.html" class="btn btn-neutral float-right" title="shell_parser.commands package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, xLo27, adagio7.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+shell\_parser package
+=====================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   shell_parser.commands
+
+Submodules
+----------
+
+shell\_parser.converter module
+------------------------------
+
+.. automodule:: shell_parser.converter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+shell\_parser.expressions module
+--------------------------------
+
+.. automodule:: shell_parser.expressions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+shell\_parser.main module
+-------------------------
+
+.. automodule:: shell_parser.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: shell_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:

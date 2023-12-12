@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>shell_parser.converter &mdash; Bash Shell 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Bash Shell
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Bash Shell</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">shell_parser.converter</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for shell_parser.converter</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">shell_parser.grammar.ShellGrammarParser</span> <span class="kn">import</span> <span class="n">ShellGrammarParser</span>
+<span class="kn">from</span> <span class="nn">.grammar.ShellGrammarVisitor</span> <span class="kn">import</span> <span class="n">ShellGrammarVisitor</span>
+
+<span class="kn">from</span> <span class="nn">.commands.call</span> <span class="kn">import</span> <span class="n">Call</span>
+<span class="kn">from</span> <span class="nn">.commands.command</span> <span class="kn">import</span> <span class="n">Command</span>
+<span class="kn">from</span> <span class="nn">.commands.seq</span> <span class="kn">import</span> <span class="n">Seq</span>
+<span class="kn">from</span> <span class="nn">.commands.pipe</span> <span class="kn">import</span> <span class="n">Pipe</span>
+<span class="kn">from</span> <span class="nn">.expressions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Redirection</span><span class="p">,</span>
+    <span class="n">Quoted</span><span class="p">,</span>
+    <span class="n">UnQuoted</span><span class="p">,</span>
+    <span class="n">BackQuoted</span><span class="p">,</span>
+    <span class="n">UnexpandedArgument</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="Converter">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter">[docs]</a>
+<span class="k">class</span> <span class="nc">Converter</span><span class="p">(</span><span class="n">ShellGrammarVisitor</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    | Visitor that converts the parse tree into a Command object.</span>
+<span class="sd">    | The parse tree is traversed in a depth-first manner.</span>
+
+<span class="sd">    | Allows for the tokenization of the input to be abstracted away.</span>
+<span class="sd">    | Enabling seperation of concerns between the parser and the tokenizer.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Converter.visitStart">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitStart">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitStart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visitCommand</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">command</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitCommand">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitCommand">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitCommand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Command</span><span class="p">:</span>
+        <span class="c1"># Base case, call or pipe</span>
+        <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">getChildCount</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="c1"># Case of command seq+</span>
+        <span class="k">elif</span> <span class="n">ctx</span><span class="o">.</span><span class="n">getChildCount</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Seq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitSeq">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitSeq">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitSeq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Command</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visitCommand</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">command</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitPipe">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitPipe">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitPipe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pipe</span><span class="p">:</span>
+        <span class="c1"># Note the skipped &#39;|&#39; terminal node</span>
+        <span class="n">left_ctx</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">right_ctx</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">getChildren</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">Pipe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">left_ctx</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">right_ctx</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitCall">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitCall">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitCall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Call</span><span class="p">:</span>
+        <span class="n">call_args</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">getChildren</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span>
+                <span class="n">child</span><span class="p">,</span>
+                <span class="p">(</span>
+                    <span class="n">ShellGrammarParser</span><span class="o">.</span><span class="n">RedirectionContext</span><span class="p">,</span>
+                    <span class="n">ShellGrammarParser</span><span class="o">.</span><span class="n">ArgumentContext</span><span class="p">,</span>
+                    <span class="n">ShellGrammarParser</span><span class="o">.</span><span class="n">AtomContext</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">):</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+                <span class="n">call_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Call</span><span class="p">(</span><span class="o">*</span><span class="n">call_args</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitAtom">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitAtom">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitAtom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">redirection</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visitRedirection</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">redirection</span><span class="p">())</span>
+
+        <span class="k">elif</span> <span class="n">ctx</span><span class="o">.</span><span class="n">argument</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visitArgument</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">argument</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitRedirection">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitRedirection">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitRedirection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Redirection</span><span class="p">:</span>
+        <span class="n">redirection_type</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># The mapping of &#39;&lt;&#39; to &#39;input&#39; is a design choice.</span>
+        <span class="c1"># Aimed at making the code more scalable,</span>
+        <span class="c1"># by allowing different symbols to be support.</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="o">==</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">:</span>
+            <span class="n">redirection_type</span> <span class="o">=</span> <span class="s2">&quot;input&quot;</span>
+
+        <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">getChild</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="o">==</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">:</span>
+            <span class="n">redirection_type</span> <span class="o">=</span> <span class="s2">&quot;output&quot;</span>
+
+        <span class="n">arg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visitArgument</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">argument</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">Redirection</span><span class="p">(</span><span class="n">redirection_type</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitArgument">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitArgument">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitArgument</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UnexpandedArgument</span><span class="p">:</span>
+        <span class="n">arg_content</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">getChildren</span><span class="p">():</span>
+            <span class="n">arg_content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">child</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">UnexpandedArgument</span><span class="p">(</span><span class="o">*</span><span class="n">arg_content</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitQuoted">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitQuoted">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitQuoted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Quoted</span><span class="p">,</span> <span class="n">BackQuoted</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">ctx</span><span class="o">.</span><span class="n">singlequoted</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visitSinglequoted</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">singlequoted</span><span class="p">())</span>
+
+        <span class="k">elif</span> <span class="n">ctx</span><span class="o">.</span><span class="n">doublequoted</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visitDoublequoted</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">doublequoted</span><span class="p">())</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">visitBackquoted</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">backquoted</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitUnquoted">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitUnquoted">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitUnquoted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UnQuoted</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">UnQuoted</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">getText</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitSinglequoted">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitSinglequoted">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitSinglequoted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Quoted</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">getText</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">Quoted</span><span class="p">(</span><span class="n">content</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitDoublequoted">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitDoublequoted">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitDoublequoted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Quoted</span><span class="p">:</span>
+        <span class="n">quoted_content</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">ctx</span><span class="o">.</span><span class="n">getChildren</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">ShellGrammarParser</span><span class="o">.</span><span class="n">BackquotedContext</span><span class="p">):</span>
+                <span class="n">back_quoted</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">visitBackquoted</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+                <span class="c1"># Disable interpretation of special characters</span>
+                <span class="n">quoted_content</span> <span class="o">+=</span> <span class="n">back_quoted</span><span class="o">.</span><span class="n">glob_pattern</span><span class="p">()</span>
+
+            <span class="c1"># Enclosing double quotes are not part of the content</span>
+            <span class="k">elif</span> <span class="n">child</span><span class="o">.</span><span class="n">getText</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">quoted_content</span> <span class="o">+=</span> <span class="n">child</span><span class="o">.</span><span class="n">getText</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">Quoted</span><span class="p">(</span><span class="n">quoted_content</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Converter.visitBackquoted">
+<a class="viewcode-back" href="../../shell_parser.html#shell_parser.converter.Converter.visitBackquoted">[docs]</a>
+    <span class="k">def</span> <span class="nf">visitBackquoted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BackQuoted</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">getText</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">BackQuoted</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, xLo27, adagio7.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

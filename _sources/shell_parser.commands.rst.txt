@@ -1,0 +1,45 @@
+shell\_parser.commands package
+==============================
+
+Submodules
+----------
+
+shell\_parser.commands.call module
+----------------------------------
+
+.. automodule:: shell_parser.commands.call
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+shell\_parser.commands.command module
+-------------------------------------
+
+.. automodule:: shell_parser.commands.command
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+shell\_parser.commands.pipe module
+----------------------------------
+
+.. automodule:: shell_parser.commands.pipe
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+shell\_parser.commands.seq module
+---------------------------------
+
+.. automodule:: shell_parser.commands.seq
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: shell_parser.commands
+   :members:
+   :undoc-members:
+   :show-inheritance:

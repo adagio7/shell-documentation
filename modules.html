@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src &mdash; Bash Shell 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="applications package" href="applications.html" />
+    <link rel="prev" title="Welcome to Bash Shell’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bash Shell
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">src</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="applications.html">applications package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">exceptions package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.html">shell_parser package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bash Shell</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">src</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src">
+<h1>src<a class="headerlink" href="#src" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">applications package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.app">applications.app module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.app.App"><code class="docutils literal notranslate"><span class="pre">App</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.app.App.exec"><code class="docutils literal notranslate"><span class="pre">App.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.app.App.name"><code class="docutils literal notranslate"><span class="pre">App.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.app_factory">applications.app_factory module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.app_factory.AppFactory"><code class="docutils literal notranslate"><span class="pre">AppFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.app_factory.AppFactory.apps"><code class="docutils literal notranslate"><span class="pre">AppFactory.apps</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.app_factory.AppFactory.getApp"><code class="docutils literal notranslate"><span class="pre">AppFactory.getApp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.cat">applications.cat module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.cat.Cat"><code class="docutils literal notranslate"><span class="pre">Cat</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.cat.Cat.exec"><code class="docutils literal notranslate"><span class="pre">Cat.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.cat.Cat.name"><code class="docutils literal notranslate"><span class="pre">Cat.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.cd">applications.cd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.cd.Cd"><code class="docutils literal notranslate"><span class="pre">Cd</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.cd.Cd.exec"><code class="docutils literal notranslate"><span class="pre">Cd.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.cd.Cd.name"><code class="docutils literal notranslate"><span class="pre">Cd.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.cut">applications.cut module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.cut.Cut"><code class="docutils literal notranslate"><span class="pre">Cut</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.cut.Cut.exec"><code class="docutils literal notranslate"><span class="pre">Cut.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.cut.Cut.name"><code class="docutils literal notranslate"><span class="pre">Cut.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.echo">applications.echo module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.echo.Echo"><code class="docutils literal notranslate"><span class="pre">Echo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.echo.Echo.exec"><code class="docutils literal notranslate"><span class="pre">Echo.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.echo.Echo.name"><code class="docutils literal notranslate"><span class="pre">Echo.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.find">applications.find module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.find.Find"><code class="docutils literal notranslate"><span class="pre">Find</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.find.Find.exec"><code class="docutils literal notranslate"><span class="pre">Find.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.find.Find.name"><code class="docutils literal notranslate"><span class="pre">Find.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.grep">applications.grep module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.grep.Grep"><code class="docutils literal notranslate"><span class="pre">Grep</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.grep.Grep.exec"><code class="docutils literal notranslate"><span class="pre">Grep.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.grep.Grep.name"><code class="docutils literal notranslate"><span class="pre">Grep.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.head">applications.head module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.head.Head"><code class="docutils literal notranslate"><span class="pre">Head</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.head.Head.exec"><code class="docutils literal notranslate"><span class="pre">Head.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.head.Head.name"><code class="docutils literal notranslate"><span class="pre">Head.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.ls">applications.ls module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.ls.Ls"><code class="docutils literal notranslate"><span class="pre">Ls</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.ls.Ls.exec"><code class="docutils literal notranslate"><span class="pre">Ls.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.ls.Ls.name"><code class="docutils literal notranslate"><span class="pre">Ls.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.pwd">applications.pwd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.pwd.Pwd"><code class="docutils literal notranslate"><span class="pre">Pwd</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.pwd.Pwd.exec"><code class="docutils literal notranslate"><span class="pre">Pwd.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.pwd.Pwd.name"><code class="docutils literal notranslate"><span class="pre">Pwd.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.sort">applications.sort module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.sort.Sort"><code class="docutils literal notranslate"><span class="pre">Sort</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.sort.Sort.exec"><code class="docutils literal notranslate"><span class="pre">Sort.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.sort.Sort.name"><code class="docutils literal notranslate"><span class="pre">Sort.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.tail">applications.tail module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.tail.Tail"><code class="docutils literal notranslate"><span class="pre">Tail</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.tail.Tail.exec"><code class="docutils literal notranslate"><span class="pre">Tail.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.tail.Tail.name"><code class="docutils literal notranslate"><span class="pre">Tail.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.uniq">applications.uniq module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.uniq.Uniq"><code class="docutils literal notranslate"><span class="pre">Uniq</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.uniq.Uniq.exec"><code class="docutils literal notranslate"><span class="pre">Uniq.exec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.uniq.Uniq.ignore_case"><code class="docutils literal notranslate"><span class="pre">Uniq.ignore_case</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.uniq.Uniq.name"><code class="docutils literal notranslate"><span class="pre">Uniq.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications.unsafe_decorator">applications.unsafe_decorator module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications.html#applications.unsafe_decorator.UnsafeApp"><code class="docutils literal notranslate"><span class="pre">UnsafeApp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications.html#applications.unsafe_decorator.UnsafeApp.exec"><code class="docutils literal notranslate"><span class="pre">UnsafeApp.exec()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="applications.html#module-applications">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">exceptions package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#module-exceptions.parser_error_listener">exceptions.parser_error_listener module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.parser_error_listener.ParserErrorListener"><code class="docutils literal notranslate"><span class="pre">ParserErrorListener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#exceptions.parser_error_listener.ParserErrorListener.reportAmbiguity"><code class="docutils literal notranslate"><span class="pre">ParserErrorListener.reportAmbiguity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#exceptions.parser_error_listener.ParserErrorListener.symbol"><code class="docutils literal notranslate"><span class="pre">ParserErrorListener.symbol</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="exceptions.html#exceptions.parser_error_listener.ParserErrorListener.syntaxError"><code class="docutils literal notranslate"><span class="pre">ParserErrorListener.syntaxError()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#module-exceptions.shell_error">exceptions.shell_error module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.AppNotFoundError"><code class="docutils literal notranslate"><span class="pre">AppNotFoundError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.AppRuntimeError"><code class="docutils literal notranslate"><span class="pre">AppRuntimeError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.ArgumentError"><code class="docutils literal notranslate"><span class="pre">ArgumentError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.DescendingByteRangeError"><code class="docutils literal notranslate"><span class="pre">DescendingByteRangeError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.DirectoryMissingError"><code class="docutils literal notranslate"><span class="pre">DirectoryMissingError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.FileMissingError"><code class="docutils literal notranslate"><span class="pre">FileMissingError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.FilePermissionError"><code class="docutils literal notranslate"><span class="pre">FilePermissionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.IncompleteByteRangeError"><code class="docutils literal notranslate"><span class="pre">IncompleteByteRangeError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.InvalidByteRangeError"><code class="docutils literal notranslate"><span class="pre">InvalidByteRangeError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.InvalidRegexError"><code class="docutils literal notranslate"><span class="pre">InvalidRegexError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.MissingApplicationArgumentsError"><code class="docutils literal notranslate"><span class="pre">MissingApplicationArgumentsError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.MissingFlagArgumentError"><code class="docutils literal notranslate"><span class="pre">MissingFlagArgumentError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.MissingInputStreamError"><code class="docutils literal notranslate"><span class="pre">MissingInputStreamError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.ParserError"><code class="docutils literal notranslate"><span class="pre">ParserError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.ShellError"><code class="docutils literal notranslate"><span class="pre">ShellError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.TooManyArgumentsError"><code class="docutils literal notranslate"><span class="pre">TooManyArgumentsError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.UnsupportedFlagError"><code class="docutils literal notranslate"><span class="pre">UnsupportedFlagError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#exceptions.shell_error.WrongArgumentTypeError"><code class="docutils literal notranslate"><span class="pre">WrongArgumentTypeError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#module-exceptions">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell.html#shell.eval"><code class="docutils literal notranslate"><span class="pre">eval()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell_parser.html">shell_parser package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.commands.html">shell_parser.commands package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.commands.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.commands.html#module-shell_parser.commands.call">shell_parser.commands.call module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.commands.html#module-shell_parser.commands.command">shell_parser.commands.command module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.commands.html#module-shell_parser.commands.pipe">shell_parser.commands.pipe module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.commands.html#module-shell_parser.commands.seq">shell_parser.commands.seq module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.commands.html#module-shell_parser.commands">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.html#module-shell_parser.converter">shell_parser.converter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter"><code class="docutils literal notranslate"><span class="pre">Converter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitArgument"><code class="docutils literal notranslate"><span class="pre">Converter.visitArgument()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitAtom"><code class="docutils literal notranslate"><span class="pre">Converter.visitAtom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitBackquoted"><code class="docutils literal notranslate"><span class="pre">Converter.visitBackquoted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitCall"><code class="docutils literal notranslate"><span class="pre">Converter.visitCall()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitCommand"><code class="docutils literal notranslate"><span class="pre">Converter.visitCommand()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitDoublequoted"><code class="docutils literal notranslate"><span class="pre">Converter.visitDoublequoted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitPipe"><code class="docutils literal notranslate"><span class="pre">Converter.visitPipe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitQuoted"><code class="docutils literal notranslate"><span class="pre">Converter.visitQuoted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitRedirection"><code class="docutils literal notranslate"><span class="pre">Converter.visitRedirection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitSeq"><code class="docutils literal notranslate"><span class="pre">Converter.visitSeq()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitSinglequoted"><code class="docutils literal notranslate"><span class="pre">Converter.visitSinglequoted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitStart"><code class="docutils literal notranslate"><span class="pre">Converter.visitStart()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.converter.Converter.visitUnquoted"><code class="docutils literal notranslate"><span class="pre">Converter.visitUnquoted()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.html#module-shell_parser.expressions">shell_parser.expressions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.Argument"><code class="docutils literal notranslate"><span class="pre">Argument</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.Argument.glob_pattern"><code class="docutils literal notranslate"><span class="pre">Argument.glob_pattern()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.ArgumentContent"><code class="docutils literal notranslate"><span class="pre">ArgumentContent</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.ArgumentContent.glob_pattern"><code class="docutils literal notranslate"><span class="pre">ArgumentContent.glob_pattern()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.BackQuoted"><code class="docutils literal notranslate"><span class="pre">BackQuoted</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.BackQuoted.glob_pattern"><code class="docutils literal notranslate"><span class="pre">BackQuoted.glob_pattern()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.Quoted"><code class="docutils literal notranslate"><span class="pre">Quoted</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.Quoted.glob_pattern"><code class="docutils literal notranslate"><span class="pre">Quoted.glob_pattern()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.Redirection"><code class="docutils literal notranslate"><span class="pre">Redirection</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.UnQuoted"><code class="docutils literal notranslate"><span class="pre">UnQuoted</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.UnQuoted.glob_pattern"><code class="docutils literal notranslate"><span class="pre">UnQuoted.glob_pattern()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.UnexpandedArgument"><code class="docutils literal notranslate"><span class="pre">UnexpandedArgument</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell_parser.html#shell_parser.expressions.UnexpandedArgument.expand"><code class="docutils literal notranslate"><span class="pre">UnexpandedArgument.expand()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.html#module-shell_parser.main">shell_parser.main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.html#shell_parser.main.convert"><code class="docutils literal notranslate"><span class="pre">convert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell_parser.html#shell_parser.main.evaluate"><code class="docutils literal notranslate"><span class="pre">evaluate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shell_parser.html#module-shell_parser">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.autocomplete">utils.autocomplete module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#utils.autocomplete.AutoCompleter"><code class="docutils literal notranslate"><span class="pre">AutoCompleter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#utils.autocomplete.AutoCompleter.get_completions"><code class="docutils literal notranslate"><span class="pre">AutoCompleter.get_completions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.syntax_highlight">utils.syntax_highlight module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#utils.syntax_highlight.CustomLexer"><code class="docutils literal notranslate"><span class="pre">CustomLexer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#utils.syntax_highlight.CustomLexer.tokens"><code class="docutils literal notranslate"><span class="pre">CustomLexer.tokens</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Bash Shell’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="applications.html" class="btn btn-neutral float-right" title="applications package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, xLo27, adagio7.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

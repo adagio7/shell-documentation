@@ -1,0 +1,29 @@
+exceptions package
+==================
+
+Submodules
+----------
+
+exceptions.parser\_error\_listener module
+-----------------------------------------
+
+.. automodule:: exceptions.parser_error_listener
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+exceptions.shell\_error module
+------------------------------
+
+.. automodule:: exceptions.shell_error
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: exceptions
+   :members:
+   :undoc-members:
+   :show-inheritance:

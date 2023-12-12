@@ -1,0 +1,29 @@
+utils package
+=============
+
+Submodules
+----------
+
+utils.autocomplete module
+-------------------------
+
+.. automodule:: utils.autocomplete
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+utils.syntax\_highlight module
+------------------------------
+
+.. automodule:: utils.syntax_highlight
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
